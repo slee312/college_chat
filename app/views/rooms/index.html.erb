@@ -1,0 +1,45 @@
+<% provide(:title, "Room Listings") %>
+
+<div class = "container">
+  <div class = "row text-center">
+  <h3>Please note that the app requires your location to work properly.</h3>
+  <h6>*We will not use your information for any other purpose than to locate rooms around you and to let you create geotagged rooms.</h6>
+  </div>
+  <div class = "row">
+    <div class = "col-md-2"></div>
+    <div class = "col-md-8"><!-- room list -->
+      <div class = "rooms-container">
+        <div id = "map-container"></div>
+        
+        <div class = "list-container panel panel-primary">
+          <div class = "list-heading panel-heading">Room List</div>
+          <div class = "list-items list-group">
+            <a href = "#" class = "list-item list-group-item">Charles Commons</a>
+            <a href = "#" class = "list-item list-group-item">Wolman</a>
+            <a href = "#" class = "list-item list-group-item">Blackstone</a>
+            <a href = "#" class = "list-item list-group-item">The Charles</a>
+            <a href = "#" class = "list-item list-group-item">Krieger</a>
+            <a href = "#" class = "list-item list-group-item">Shaffer</a>
+          </div>
+        </div> <!-- end list container -->
+
+      </div><!-- end rooms container -->
+    </div><!-- end room list -->
+    <div class = "col-md-2"></div>
+  </div>
+  <div class = "row text-right">
+    <div class = "col-md-6"></div>
+    <div class = "col-md-4">
+       <form class = "form-inline" role = "form">
+         <div class = "input-group">
+           <input type= "text" class="form-control">
+           <div class ="input-group-btn">
+             <input type = "submit" class="btn btn-success" value = "Create Room!">
+           </div>
+         </div>
+      </form>
+    </div>
+    <div class = "col-md-2"></div>
+  </div>
+</div>
+

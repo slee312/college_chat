@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>Campus Chat | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+<%= render 'layouts/head' %>
+<%= yield %>
+<%= render 'layouts/foot' %>
+<%= javascript_include_tag "application", "bootstrap" %>
+</body>
+</html>

@@ -1,0 +1,44 @@
+@import "bootstrap";
+
+//layout stuff
+
+body {
+  margin-top: 70px;
+}
+
+.end-note {
+  text-align: center;
+  color: #666;
+}
+
+hr {
+  border-color: #CCC;
+}
+
+//rooms container
+.rooms-container {
+  padding:0;
+  margin:0;
+}
+
+#map-container {
+  height: 500px;
+  width: 70%;
+  float: left;
+}
+
+.list-container {
+  height: 500px;
+  width: 29%;
+  float: right;
+}
+.list-heading {
+  background-color: #CCC;
+}
+.list-items {
+
+}
+.list-item {
+
+}
+
