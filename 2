@@ -1,0 +1,26 @@
+var $last_timestamp = $('#last_timestamp');
+
+if ($last_timestamp.val() == "") {
+  // never been updated before
+  $('#chats-container').append(
+  "<%= escape_javascript(@msg_array.last.user + " [" + @msg_array.last.created_at.to_s + "]: " + @msg_array.last.content) %>"
+  );
+} else {
+  // has been updated before
+  var last_date = new Date($last_timestamp.val());
+  var curr_date;
+
+  <% @msg_array.each do |msg| %>
+    curr_date = new Date("<%= msg.created_at.to_s %>"); 
+    if (curr_date > last_date) {
+      $('#chats-container').append(
+      "<%= escape_javascript(@msg_array.last.user + " [" + @msg_array.last.created_at.to_s + "]: " + @msg_array.last.content) %>"
+      );
+
+    }
+  <% end %>
+}
+
+// update timestamp to latest one
+$last_timestamp.val("<%= @msg_array.last.created_at %>");
+

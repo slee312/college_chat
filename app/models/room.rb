@@ -1,5 +1,10 @@
 class Room
   include Mongoid::Document
+  include Mongoid::Timestamps
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
   field :name, type: String
   field :location, type: Array
 

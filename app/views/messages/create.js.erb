@@ -1,0 +1,23 @@
+//append error messages
+<% if @errors %>
+  var $errors = $("<div>", {class: "alert alert-danger"});
+  <% @errors.each do |err| %>
+    $errors.append("<li><%= err %></li>");
+  <% end %>
+  $('#messages_feed').append($errors);
+<% else %>
+  $('#message_content').val("");
+  /*
+  var $succeed = $("<div>", {class: "alert alert-success"});
+  $succeed.html("Chat posted.");
+  $('#messages_feed').append($succeed);
+  setTimeout(function() {
+    $succeed.fadeOut();
+  }, 1000);
+  */
+<% end %>
+
+//enable post button
+$('#post-submit').prop('disabled', false);
+$('#post-submit').val('Post');
+

@@ -2,13 +2,13 @@
 
 //layout stuff
 
-body {
-  margin-top: 70px;
-}
-
 .end-note {
   text-align: center;
   color: #666;
+}
+
+textarea {
+  resize: none;
 }
 
 hr {
@@ -25,6 +25,14 @@ hr {
   height: 500px;
   width: 70%;
   float: left;
+  position:relative;
+}
+
+#get_loc_btn {
+  position: absolute;
+  right: 10px;
+  bottom: 25px;
+  z-index:99999;
 }
 
 .list-container {
@@ -32,13 +40,17 @@ hr {
   width: 29%;
   float: right;
 }
-.list-heading {
-  background-color: #CCC;
-}
-.list-items {
 
-}
-.list-item {
-
+#chats-container {
+  height: 330px;
+  overflow: auto;
 }
 
+.post-maker {
+  height: 220px;
+  width: 100%;
+}
+
+.btn-post {
+  margin-right: 5px;
+}

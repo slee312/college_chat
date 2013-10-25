@@ -2,6 +2,10 @@ CollegeChat::Application.routes.draw do
   root to: 'rooms#index' 
   get '/rooms' => 'rooms#index', as: 'listings'
   get '/rooms/:id' => 'rooms#show', as: 'room'
+  post '/rooms' => 'rooms#create', as: 'create_room'
+  
+  get '/messages' => 'messages#index', as: 'list_message'
+  post '/messages' => 'messages#create', as: 'post_message'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,40 @@
+var $last_timestamp = $('#last_timestamp');
+
+if ($last_timestamp.val() == "") {
+  // never been updated before
+  appendToChat("<%= escape_javascript(@msg_array.last.user) %>",
+               "<%= escape_javascript(@msg_array.last.created_at.to_s) %>",
+               "<%= escape_javascript(@msg_array.last.content) %>", true);
+} else {
+  // has been updated before
+  var last_date = new Date($last_timestamp.val());
+  var curr_date;
+
+  <% @msg_array.each do |msg| %>
+    curr_date = new Date("<%= msg.created_at.to_s %>"); 
+    if (curr_date > last_date) {
+      appendToChat("<%= escape_javascript(msg.user) %>",
+                   "<%= escape_javascript(msg.created_at.to_s) %>",
+                   "<%= escape_javascript(msg.content) %>", false);
+    }
+  <% end %>
+}
+
+$('#chats-container').scrollTop($('#chats-container')[0].scrollHeight);
+
+// update timestamp to latest one
+$last_timestamp.val("<%= @msg_array.last.created_at %>");
+
+
+function appendToChat(user, date, content, timestamps) {
+  if (timestamps) {
+    $('#chats-container').append(
+    "<li class = \"list-group-item\"><b>" + user + "</b> [<i>" + date + "</i>]: " + content + "</li>"
+    );
+
+  } else {
+    $('#chats-container').append(
+    "<li class = \"list-group-item\"><b>" + user + "</b>: " + content + "</li>"
+    );
+  }
+}

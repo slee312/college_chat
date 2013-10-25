@@ -9,35 +9,29 @@
     <div class = "col-md-2"></div>
     <div class = "col-md-8"><!-- room list -->
       <div class = "rooms-container">
-        <div id = "map-container"></div>
+        <div id = "map-container">
+          <%= button_tag("Get Current Location", {class: "btn btn-info", id: "get_loc_btn"}) %>
+        </div>
         
         <div class = "list-container panel panel-primary">
-          <div class = "list-heading panel-heading">Room List</div>
-          <div class = "list-items list-group">
-            <a href = "#" class = "list-item list-group-item">Charles Commons</a>
-            <a href = "#" class = "list-item list-group-item">Wolman</a>
-            <a href = "#" class = "list-item list-group-item">Blackstone</a>
-            <a href = "#" class = "list-item list-group-item">The Charles</a>
-            <a href = "#" class = "list-item list-group-item">Krieger</a>
-            <a href = "#" class = "list-item list-group-item">Shaffer</a>
+          <div class = "panel-heading">Popular Rooms</div>
+          <div class = "list-group">
+            <% @curr_rooms.each do |r| %>
+            <a href = "<%= room_path(r) %>" class = "list-group-item room-name"><%= r.name %></a>
+            <input type = "hidden" class = "room-loc" value = "<%= r.location %>">
+            <% end %>
           </div>
         </div> <!-- end list container -->
 
       </div><!-- end rooms container -->
+
     </div><!-- end room list -->
     <div class = "col-md-2"></div>
   </div>
-  <div class = "row text-right">
+  <div class = "row">
     <div class = "col-md-6"></div>
-    <div class = "col-md-4">
-       <form class = "form-inline" role = "form">
-         <div class = "input-group">
-           <input type= "text" class="form-control">
-           <div class ="input-group-btn">
-             <input type = "submit" class="btn btn-success" value = "Create Room!">
-           </div>
-         </div>
-      </form>
+    <div class = "col-md-4 text-right">
+       <%= render 'forms/create_room' %>
     </div>
     <div class = "col-md-2"></div>
   </div>
