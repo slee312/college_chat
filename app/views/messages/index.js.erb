@@ -9,6 +9,7 @@ if ($last_timestamp.val() == "") {
   // has been updated before
   var last_date = new Date($last_timestamp.val());
   var curr_date;
+  var changes = 0;
 
   <% @msg_array.each do |msg| %>
     curr_date = new Date("<%= msg.created_at.to_s %>"); 
@@ -16,11 +17,14 @@ if ($last_timestamp.val() == "") {
       appendToChat("<%= escape_javascript(msg.user) %>",
                    "<%= escape_javascript(msg.created_at.to_s) %>",
                    "<%= escape_javascript(msg.content) %>", false);
+      changes++;
     }
   <% end %>
+  if (changes > 0) {
+    $('#chats-container').scrollTop($('#chats-container')[0].scrollHeight);
+  }
 }
 
-$('#chats-container').scrollTop($('#chats-container')[0].scrollHeight);
 
 // update timestamp to latest one
 $last_timestamp.val("<%= @msg_array.last.created_at %>");
